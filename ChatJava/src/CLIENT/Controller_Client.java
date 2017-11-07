@@ -23,6 +23,8 @@ import java.util.ResourceBundle;
 
 public class Controller_Client  extends Thread implements javafx.fxml.Initializable{
 		
+		private String server_ip = "localhost";
+	
 		private DatagramSocket s;
 		@FXML
 		private Button invia;
@@ -78,7 +80,7 @@ public class Controller_Client  extends Thread implements javafx.fxml.Initializa
 		     
 		     try {
 				s= new DatagramSocket();
-		    	s.send(new DatagramPacket(msg.getBytes(), msg.getBytes().length, InetAddress.getByName("localhost"), 9898));
+		    	s.send(new DatagramPacket(msg.getBytes(), msg.getBytes().length, InetAddress.getByName(server_ip), 9898));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
