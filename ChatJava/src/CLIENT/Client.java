@@ -28,7 +28,7 @@ public class Client extends Application {
 	}
 
 	public static void main(String[] args) {
-		Thread_Client t = new Thread_Client();
+		//Controller_Client t = new Controller_Client();
 		
 		launch(args);
 	}

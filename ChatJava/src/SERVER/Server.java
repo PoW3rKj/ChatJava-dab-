@@ -19,12 +19,12 @@ public class Server extends Thread {
 	
 	public void run(){
 		while(true){
-		String m = receiveMessage();
-		
-		String[] m2 = new String[2];
-		m2 = divMessage(m);
-		
-		sendMessage(m2[0], m2[1]);
+			String m = receiveMessage();
+			
+			String[] m2 = new String[2];
+			m2 = divMessage(m);
+			
+			sendMessage(m2[0], m2[1]);
 
 		}
 	}
@@ -36,20 +36,22 @@ public class Server extends Thread {
 		s[0] = "";
 		boolean trovato = false;
 		int i = 0;
-		while(true && !trovato){
-			
+		
+		while(!trovato){
+			if(i == m.length()) {
+				break;
+			}
 			if(m.charAt(i) == '|'){
 				i++;
 				while(m.charAt(i) != '|'){
 					s[1] = s[1] + m.charAt(i);
-					
 					i++;
 				}
 				trovato = true;
 			}else{
 				s[0] = s[0] + m.charAt(i);
+				i++;
 			}
-			i++;
 		}
 		System.out.println("Destinatario: " + s[1] + " Msg: " + s[0]);
 		return s;
@@ -59,7 +61,7 @@ public class Server extends Thread {
 	private void sendMessage(String msg, String dest){
 		
 		try {
-			s.send(new DatagramPacket(msg.getBytes(), msg.getBytes().length, InetAddress.getByName(dest), 9898));
+			s.send(new DatagramPacket(msg.getBytes(), msg.getBytes().length, InetAddress.getByName(dest), 9897));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
