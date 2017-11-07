@@ -6,7 +6,13 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
+import javafx.application.Platform;
+import javafx.scene.layout.HBox;
+import javafx.geometry.*;
+import javafx.scene.control.Label;
 
+//import java.awt.Label;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -14,8 +20,6 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javax.swing.text.html.ListView;
 
 public class Controller_Client  extends Thread implements javafx.fxml.Initializable{
 		
@@ -26,8 +30,8 @@ public class Controller_Client  extends Thread implements javafx.fxml.Initializa
 		private TextField messaggio;
 		@FXML
 		private TextField ip_dest;
-//		@FXML
-//		private ListView vista_messaggio;
+		@FXML
+		private ListView lista;
 		
 		private DatagramPacket pkt;
 		private byte[] buf = new byte[256];
@@ -46,11 +50,16 @@ public class Controller_Client  extends Thread implements javafx.fxml.Initializa
 		
 		public void run() {
 			while(true){
+				Platform.setImplicitExit(false);
 				String smg_arrivo = receiveMessage();
 				System.out.println(smg_arrivo);
-				messaggio.setText("");
-				//vista_messaggio
-				// DA MODIFICARE COMPONENTE GRAFICO, LISTVIEW NON è QUELLO GIUSTO
+				Platform.runLater(() -> {
+                    try {
+                    	lista.getItems().add("ALTRO TIPO: " + smg_arrivo);
+                    } catch (Exception ex) {
+                        //Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                });	
 			}
 		}
 		
@@ -59,6 +68,14 @@ public class Controller_Client  extends Thread implements javafx.fxml.Initializa
 		 private void handleButtonAction(ActionEvent event) {
 		     // Button was clicked, do something...
 		     String msg = messaggio.getText() + "|"+ ip_dest.getText() + "|";
+		     Platform.runLater(() -> {
+                 try {
+                	 lista.getItems().add("TU: " + messaggio.getText());
+                 } catch (Exception ex) {
+                     //Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+             });
+		     
 		     try {
 				s= new DatagramSocket();
 		    	s.send(new DatagramPacket(msg.getBytes(), msg.getBytes().length, InetAddress.getByName("localhost"), 9898));

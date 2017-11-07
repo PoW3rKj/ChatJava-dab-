@@ -11,7 +11,7 @@
    <children>
       <Pane prefHeight="404.0" prefWidth="618.0">
          <children>
-            <JFXListView layoutX="14.0" layoutY="14.0" prefHeight="323.0" prefWidth="424.0" />
+            <JFXListView fx:id="lista" layoutX="14.0" layoutY="14.0" prefHeight="323.0" prefWidth="424.0" />
             <JFXButton fx:id="invia" defaultButton="true" layoutX="454.0" layoutY="355.0" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="130.0" ripplerFill="#0400ff" text="Invia" />
             <JFXTextField fx:id="messaggio" focusColor="#0040ff" layoutX="14.0" layoutY="354.0" prefHeight="36.0" prefWidth="424.0" />
             <JFXTextField fx:id="ip_dest" focusColor="#0040ff" layoutX="452.0" layoutY="32.0" />
