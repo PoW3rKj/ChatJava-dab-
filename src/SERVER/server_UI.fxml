@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<TilePane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="326.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SERVER.MyThread">
+   <children>
+      <Pane prefHeight="335.0" prefWidth="618.0" style="-fx-background-color: #272828;">
+         <children>
+            <JFXScrollPane layoutX="14.0" layoutY="31.0" prefHeight="286.0" prefWidth="449.0" style="-fx-background-color: #272828;">
+               <children>
+                  <TextFlow prefHeight="286.0" prefWidth="450.0" style="-fx-background-color: #272828; -fx-border-color: white;" />
+               </children>
+            </JFXScrollPane>
+            <Label layoutX="14.0" layoutY="9.0" text="Logs" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="12.0" />
+               </font>
+            </Label>
+            <JFXListView layoutX="476.0" layoutY="31.0" prefHeight="286.0" prefWidth="113.0" style="-fx-background-color: #272828; -fx-border-color: white;" />
+            <Label layoutX="476.0" layoutY="9.0" text="Utenti Attivi" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</TilePane>

@@ -1,0 +1,6 @@
+.text-field
+{
+    -fx-prompt-text-fill: #fffd8c; /*Yellow - floating label*/
+    -fx-text-fill: #ffffff; /*Yellow - input color*/
+    -fx-highlight-fill: #f70000; /*Green*/
+}
