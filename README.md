@@ -9,6 +9,10 @@ Java Application written for a school project, we are proud of our work for some
 7. Notification section
 8. Windows Notification
 
+# Download
+Download the project from our release page!
+[Release Section](https://github.com/PoW3rKj/ChatJava-dab-/releases)
+
 # Description
 New features coming soon:
 1. Emoji
